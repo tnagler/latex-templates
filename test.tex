@@ -1,0 +1,94 @@
+\documentclass[11pt]{beamer}
+\usepackage[german]{babel}
+
+\usepackage{bm}
+\usepackage{dsfont}
+
+% \input{../latex-shortcuts/math.tex}
+% \input{../latex-shortcuts/tex.tex}
+
+\usepackage{../latex-templates/beamerthemeLMU}
+
+\titlegraphic{\includegraphics[width=3cm]{../latex-templates/LMU-logo.png}}
+
+
+\title{Titel}
+\institute{Vorlesung}
+\date{\today}
+\author[T.~Nagler]{Thomas Nagler \texttt{<nagler@stat.uni-muenchen.com>}}
+
+
+\begin{document}
+
+%--------------- title page -------------------------%	
+
+{ % these braces make the change local to the single frame
+\setbeamertemplate{headline}{} 
+\setbeamertemplate{footline}{} 
+\begin{frame}[noframenumbering] 
+	\titlepage
+\end{frame}
+}
+
+%-----------------------------------------------------%	
+
+\begin{frame}{Agenda}
+	\tableofcontents
+\end{frame}
+
+%----------------------------%	
+
+\section{Thema}
+
+%----------------------------%	
+
+\begin{frame}{Titel}
+
+	\begin{itemize}
+		\item \cgreen{asdf}  \cred{asdf}  \cpurp{asdf}
+		\item  \cb{asdf} \cbgreen{asdf}
+		\item[\cmark] Yes
+	\end{itemize}
+
+	\begin{example}{asdf}
+		test
+	\end{example}
+\end{frame}
+
+%----------------------------%	
+
+\section{Thema 2}
+
+\begin{frame}{Titel}
+
+	\heading{Überschrift}
+
+	\begin{itemize}
+		\item test
+	\end{itemize}
+
+	\begin{block}{Freier text}
+		test
+	\end{block}
+
+	\begin{theorem}
+		THm
+	\end{theorem}
+
+\end{frame}
+
+%----------------------------%	
+
+\begin{frame}
+	\frametitle{Quiz}
+	\setbeamertemplate{enumerate item}{\Alph{enumi}.}
+
+	\begin{enumerate}
+		\item Antwort 1
+		\item Antwort 2
+		\item Antwort 3 \onslide<2->{\cmark}
+	\end{enumerate}
+
+\end{frame}
+
+\end{document}
