@@ -1,0 +1,73 @@
+% !TEX root
+\documentclass[12pt, openany, headinclude=true, oneside]{scrbook}
+
+\usepackage{lmodern}
+\usepackage[german]{babel} 
+
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{dsfont}
+\usepackage{bm}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks   = true,
+	urlcolor     = LMUpurple,
+	linkcolor    = LMUgreen,
+	citecolor   = LMUgreen
+}
+\usepackage[capitalize,nameinlink]{cleveref}
+\Crefname{chapter}{Kapitel}{Kapitel}
+\Crefname{section}{Abschnitt}{Abschnitte}
+\Crefname{subsection}{Abschnitt}{Abschnitte}
+
+\input{latex-templates/layout.tex}
+\input{latex-templates/lmu-colors.tex}
+\input{latex-templates/microtype.tex}
+\input{latex-templates/theorems.tex}
+
+% \input{latex-shortcuts/math.tex}
+% \input{latex-shortcuts/tex.tex}
+
+\usepackage{lipsum}  
+
+%------------------------------------------------------------------------------%
+
+
+\begin{document}
+
+\frontmatter
+
+\begin{titlepage}
+  \begin{center}
+    \includegraphics{latex-templates/LMU-logo.png}
+    \\
+    \vspace*{4cm}
+    {\Huge\sffamily{\textcolor{LMUgreen}{\bfseries{Titel}}}}\\
+    \vspace*{1cm}
+
+    {\Large\itshape{SoSe 2022}}\\
+    \vspace*{2cm}
+    {\Large Autor}\\
+    \vspace*{5cm}
+    \vfill
+    Version: \today
+  \end{center}
+\end{titlepage}
+
+%-------------------------------%
+
+\tableofcontents
+
+%-------------------------------%
+
+\mainmatter
+
+% \input{}
+
+
+\end{document}

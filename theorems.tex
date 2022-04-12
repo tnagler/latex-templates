@@ -1,0 +1,64 @@
+\usepackage{shadethm}
+
+% theorem environments
+
+\newtheoremstyle{new}
+  {12pt}      % Space above
+  {12pt}      % Space below
+  {\itshape}  % Body font
+  {}          % Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries\color{LMUgreen}} % head font
+  {.}         % Punctuation after  head
+  { }         % Space after  head: " " = normal inter-word space; \newline = line break
+  {}          % head spec (can be left empty, meaning 'normal')
+\theoremstyle{new}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corollary}[theorem]{Korollar}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Annahme}
+\newtheorem{example}[theorem]{Beispiel}
+\newtheorem{remark}[theorem]{Anmerkung}
+
+\Crefname{theorem}{Theorem}{Theoreme}
+\Crefname{corollary}{Korollar}{Korollare}
+\Crefname{proposition}{Proposition}{Propositionen}
+\Crefname{lemma}{Lemma}{Lemmas}
+\Crefname{definition}{Definition}{Definitionen}
+\Crefname{example}{Beispiel}{Beispiele}
+\Crefname{remark}{Anmerkung}{Anmerkungen}
+
+% same environments with shaded background
+\definecolor{shadethmcolor}{cmyk}{0,0,0,0.075}    
+% \definecolor{shadethmcolor}{cmyk}{0.5, 0, 0.425, 0.075}    
+\definecolor{shaderulecolor}{rgb}{1,1,1}   % color of frame 
+\setlength{\shadeboxrule}{1.2pt}   % width of frame
+\setlength{\shadeboxsep}{7pt}
+\setlength\shadedtextwidth{\dimexpr\textwidth-2\shadeboxsep\relax}
+\newtheoremstyle{shad}
+  {12pt}      % Space above
+  {12pt}      % Space below
+  {\itshape }  % Body font
+  {}          % Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries\color{LMUgreen}} % head font
+  {.}         % Punctuation after head
+  { }         % Space after head: " " = normal inter-word space; \newline = line break
+  {}          % head spec (can be left empty, meaning 'normal')
+\theoremstyle{shad} 
+
+\newshadetheorem{thmbox}[theorem]{Theorem}
+\newshadetheorem{corbox}[theorem]{Korollar}
+\newshadetheorem{propbox}[theorem]{Proposition}
+\newshadetheorem{lembox}[theorem]{Lemma}
+\newshadetheorem{exbox}[theorem]{Beispiel}
+\newshadetheorem{defbox}[theorem]{Definition}
+\newshadetheorem{rembox}[theorem]{Anmerkung}
+
+\Crefname{theorem}{Theorem}{Theoreme}
+\Crefname{corbox}{Korollar}{Korollare}
+\Crefname{propbox}{Proposition}{Propositionen}
+\Crefname{lembox}{Lemma}{Lemmas}
+\Crefname{exbox}{Beispiel}{Beispiele}
+\Crefname{defbox}{Definition}{Definitionen}
+\Crefname{rembox}{Anmerkung}{Anmerkungen}

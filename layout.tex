@@ -1,0 +1,46 @@
+\usepackage{setspace}
+\usepackage[
+  left=1.3in,
+  right=1.3in,
+  top=0.7in,
+  bottom=0.7in,
+  includeheadfoot
+]{geometry}
+\usepackage[automark,headsepline]{scrlayer-scrpage}
+\usepackage{scrhack}
+
+% % quotes
+% % \KOMAoption{headings}{twolinechapter}
+% % \renewcommand*\chapterformat{\thechapter\autodot}
+% \usepackage{quotchap}
+% \definecolor{chaptergrey}{RGB}{0,136,58}
+% \makeatletter
+% \renewcommand\chapter{%
+%   \if@openright\cleardoublepage\else\clearpage\fi
+%   \thispagestyle{plain}%
+%   \global\@topnum\z@
+% %   \@printcites% DELETED
+%   \null\hfill\@printcites\par% NEW
+%   \@afterindentfalse
+%   \secdef\@chapter\@schapter
+% }
+% \renewcommand{\@makechapterhead}[1]{%
+%   \chapterheadstartvskip%
+% %   {\size@chapter{\sectfont\raggedleft% DELETED
+%   {\size@chapter{\sectfont\raggedright% NEW
+%     {\chapnumfont 
+%       \ifnum \c@secnumdepth >\m@ne%
+%       \if@mainmatter\thechapter%
+%       \fi\fi
+%       \par\nobreak}%
+% %     {\raggedleft\advance\leftmargin10em\interlinepenalty\@M #1\par}}% DELETED
+%     {\raggedright\advance\leftmargin10em\interlinepenalty\@M #1\par}}% NEW
+%   \nobreak\chapterheadendvskip}}
+% \makeatother
+
+\automark{chapter}
+
+\setcounter{tocdepth}{1}
+
+
+\raggedbottom

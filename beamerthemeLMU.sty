@@ -1,0 +1,241 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz, datetime, textpos, mdframed, pgf}
+
+% tikz settings for table of contents
+\usetikzlibrary{shapes,arrows}
+\tikzset{section number/.style={
+		draw=none,
+		rectangle,    
+		left color=LMUgreen,
+		right color=LMUgreen,
+		minimum size=1.5em,
+		text=white,
+	},
+	section/.style={
+		draw=none,
+		rectangle,    
+		minimum height=1.5em,
+		minimum width=0.9\textwidth,
+		text width=0.9\textwidth,
+		text=LMUgreen,
+		align=left
+	}
+}
+
+
+
+% Date format
+\ddmmyyyydate \renewcommand{\dateseparator}{.}
+
+% Define colors
+\definecolor{LMUblue}{RGB}{0, 17, 88}
+\definecolor{LMUlightblue}{RGB}{92,177,235}
+\definecolor{LMUgreen}{RGB}{0,148,64}
+\definecolor{LMUlightgreen}{RGB}{170, 173, 0}
+\definecolor{LMUred}{RGB}{190,25,8}
+\definecolor{LMUpurple}{RGB}{176, 32, 121}
+\definecolor{LMUorange}{RGB}{241, 135, 0}
+\definecolor{bggray}{RGB}{250, 250, 250}
+\definecolor{LMUgray}{rgb}{0.2,0.2,0.2}% dark grey
+
+% set colors
+\setbeamercolor*{item}{fg=LMUgreen}
+\setbeamercolor*{subitem}{fg=LMUorange}
+\setbeamercolor*{subsubitem}{fg=LMUlightgreen}
+\setbeamercolor*{title}{fg=LMUgreen}
+\setbeamercolor*{enumerate item}{fg=LMUgreen}
+\setbeamercolor*{enumerate subitem}{fg=LMUgreen}
+\setbeamercolor*{enumerate subsubitem}{fg=LMUorange}
+\setbeamercolor*{block title}{fg=white, bg=LMUorange}
+\setbeamercolor*{block body}{fg=LMUgray, bg=bggray}
+\setbeamercolor*{block title example}{fg=white, bg=LMUlightblue}
+\setbeamercolor*{block body example}{fg=LMUgray, bg=bggray}
+\setbeamercolor*{section in head/foot}{bg=white, fg=white}
+\setbeamercolor*{subsection in head/foot}{bg=wwhite, fg=white}
+\setbeamercolor*{title in head/foot}{bg=white, fg=white}
+\setbeamercolor*{date in head/foot}{bg=LMUorange, fg=white}
+\setbeamercolor*{frametitle continuation}{fg=LMUgreen}
+\setbeamercolor{normal text}{fg=LMUgray}
+
+% set fonts
+\setbeamerfont*{title}{size=\huge}
+\setbeamerfont*{subtitle}{size=\Large\normalfont\slshape}
+\setbeamerfont*{block title}{size=\bfseries}
+
+% other templates
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}[triangle]
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
+\setbeamertemplate{itemize/enumerate subsubbody begin}{\normalsize}
+\setbeamertemplate{theorems}[unnumbered] 
+
+
+\defbeamertemplate*{background}{LMU}
+{
+	\begin{tikzpicture}
+	\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight); 
+	\ifnum\thepage>1\relax% Not the title page
+	\fill[color=LMUgreen] (0,8.4) rectangle(0.8,8.42);
+	\fill[color=LMUgreen] (0.9,8.4) rectangle(13.5, 8.42);
+	\else% Title page
+	\fill[color=LMUgreen] (0,-1) rectangle (\the\paperwidth,3.2);
+	\fi
+	\end{tikzpicture}
+}
+
+% define headline
+\defbeamertemplate*{headline}{LMU}{}
+
+% define footline
+\defbeamertemplate*{footline}{LMU}
+{
+	\hfill \textcolor{LMUgreen}{\insertframenumber{} / \inserttotalframenumber} \hspace{1pt}
+	\vskip4pt%
+}	
+% positioning of logo
+
+
+% define title page
+\defbeamertemplate*{title page}{LMU}[1][]
+{ 
+	\begin{tikzpicture}
+
+\node[anchor=north west,yshift=-0.3cm] at (0,0) {\hspace*{-0.5cm} \inserttitlegraphic};
+
+\node[anchor=west,text width=1.1\textwidth,align=left] at (0,-4.2) {
+	\hspace*{-0.4cm}\LARGE\inserttitle
+};
+\node[anchor=west,text width=1.1\textwidth,align=left] at (0,-5.2) {
+	\Large\normalfont\slshape\insertsubtitle
+};
+
+\node[anchor=west] at (0,-8.2){\hspace*{-0.4cm}\textcolor{white}\insertinstitute};
+\node[anchor=west] at (0,-8.7){\hspace*{-0.4cm}\textcolor{white}{\insertauthor}};
+\node[anchor=west] at (\textheight,0){~};
+
+	\end{tikzpicture}
+}
+
+% page at beginning of section
+\AtBeginSection[]{
+	\setbeamercolor{section in toc}{fg=LMUgreen}
+	\setbeamercolor{subsection in toc}{fg=LMUlightgreen}
+	\setcounter{tocdepth}{2}  
+	\frame<beamer>{\frametitle{Agenda}
+		\tableofcontents[currentsection, hideallsubsections]}
+}
+
+% define section page
+\setbeamertemplate{section page}
+{
+	\begin{centering}
+		{\usebeamerfont{subsubsection name}\usebeamercolor[fg]{subsubsection name}\subsubsectionname~\insertsubsubsectionnumber}
+		\vskip1em\par
+		\begin{beamercolorbox}[sep=4pt,center]{part title}
+			\usebeamerfont{subsubsection title}\insertsubsubsection\par
+		\end{beamercolorbox}
+	\end{centering}
+}
+
+
+\setbeamertemplate{section in toc}{
+	\tikz[baseline=-0.5ex]\node[section number]{\inserttocsectionnumber};%
+	\tikz[baseline=-0.5ex]\node[section]{\inserttocsection};
+}
+
+%% frame title
+%\defbeamertemplate*{frametitle}{LMU}
+%{
+%	\vspace{0.2cm}
+%	\begin{beamercolorbox}{frametitle} 
+%		{\normalsize\color{LMUgreen}{\insertsectionnumber~ \insertsection}} \\[-0.2cm]
+%		{\small\color{LMUorange}{\insertsectionnumber.\insertsubsectionnumber~ \insertsubsection}}
+%	\end{beamercolorbox}
+%	
+%}
+
+% frame title
+\defbeamertemplate*{frametitle}{LMU}[1][]
+{
+	\vspace{0.2cm}
+	\ifx\insertframesubtitle\empty
+	\begin{beamercolorbox}{frametitle} 
+		{\Large\color{LMUgreen}{\bfseries\insertframetitle}}
+	\end{beamercolorbox}
+	\else \begin{beamercolorbox}{frametitle} 
+		{\Large\color{LMUgreen}{\bfseries\insertframetitle}} \\[-0.2cm]
+		{\small\color{LMUorange}{\insertframesubtitle}}
+	\end{beamercolorbox}
+	\fi
+}
+
+% new theorem environment
+\setbeamertemplate{theorem begin}
+{%
+	\setbeamercolor{block title}{use=structure,fg=white,bg=LMUgreen}
+	\setbeamercolor{block body}{use=structure,fg=LMUgray,bg=bggray}
+	\begin{\inserttheoremblockenv}
+		{%
+			\inserttheoremheadfont
+			\inserttheoremname 
+			\ifx\inserttheoremaddition\@empty\else\ (\inserttheoremaddition)\fi%
+		}%		
+	}
+	\setbeamertemplate{theorem end}{\end{\inserttheoremblockenv}}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+
+\setbeamertemplate{proof begin}
+{%
+	\setbeamercolor{block title}{use=structure,fg=LMUgreen,bg=white}
+	\setbeamercolor{block body}{use=structure,fg=LMUgray,bg=white}
+	\begin{block}{{\normalfont\sl Proof.}}		
+	}
+	\setbeamertemplate{proof end}{\end{block}}
+
+\setbeamertemplate{qed symbol}{\textcolor{LMUgreen}{$\square$}}
+
+% bibliography style
+\setbeamertemplate{bibliography item}{}
+\setbeamercolor*{bibliography entry article}{fg=black}
+\setbeamercolor*{bibliography entry title}{fg=black}
+\setbeamercolor*{bibliography entry note}{fg=black}
+\setbeamercolor*{bibliography entry location}{fg=LMUorange}
+\setbeamercolor*{bibliography entry author}{fg=LMUgreen}
+
+% bigger spacing in itemize
+\let\olditemize=\itemize 
+\let\endolditemize=\enditemize 
+\renewenvironment{itemize}{\olditemize \vspace{0.5em} \itemsep1.0em}{\endolditemize}
+\let\oldenumerate=\enumerate 
+\let\endoldenumerate=\endenumerate
+\renewenvironment{enumerate}{\oldenumerate \vspace{0.5em} \itemsep0.7em}{\endoldenumerate \vspace{0.5em}}
+
+
+\usepackage{appendixnumberbeamer}
+
+
+% custom commands
+\newcommand{\cb}[1]{{\bfseries \textcolor{black}{#1}}}
+\newcommand{\cbgreen}[1]{{\bfseries \textcolor{LMUgreen}{#1}}}
+\newcommand{\cbred}[1]{{\bfseries \textcolor{LMUred}{#1}}}
+\newcommand{\cbpurp}[1]{{\bfseries \textcolor{LMUpurple}{#1}}}
+\newcommand{\cgreen}[1]{\textcolor{LMUgreen}{#1}}
+\newcommand{\cred}[1]{\textcolor{LMUred}{#1}}
+\newcommand{\cpurp}[1]{\textcolor{LMUpurple}{#1}}
+\newcommand{\heading}[1]{\vspace*{12pt} \textbf{\textcolor{LMUgreen}{#1}} \\[2pt] }
+\newcommand{\oheading}[1]{\vspace*{12pt} \textbf{\textcolor{LMUorange}{#1}}  \\[2pt] }
+
+\usepackage{pifont}
+\newcommand{\cmark}{\cbgreen{\text{\ding{51}}}}
+
+
+\newenvironment{roweqmat}[1]{\left(\array{@{}#1@{}}}{\endarray\right)}
+
+
+\mode<all>
