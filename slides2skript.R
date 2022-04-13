@@ -17,7 +17,8 @@ remove_lines <- c(
   "\\frametitle",
   "\\setbeamertemplate",
   "\\begin{block}",
-  "\\end{block}"
+  "\\end{block}",
+  "%--"
 )
 
 for (pattern in remove_words) {
