@@ -3,17 +3,29 @@ file <- commandArgs(trailingOnly = TRUE)[1]
 
 library(stringr)
 
-txt <- readLines("~/teaching/linalg-lmu/material/latex-templates/test.tex")
+txt <- readLines(file)
 
-to_remove <- c(
-  "\\begin\\{frame\\}",
-  "\\end{frame}",
+remove_words <- c(
   "\\onslide",
-  "\\pause"
+  "\\pause",
+  "\\cmark"
 )
-str_remove(txt, to_remove[4])
 
-grepl(".*begin.*frame.*", txt)
+remove_lines <- c(
+  "\\begin{frame}",
+  "\\end{frame}",
+  "\\frametitle",
+  "\\setbeamertemplate",
+  "\\begin{block}",
+  "\\end{block}"
+)
 
+for (pattern in remove_words) {
+  txt <- str_remove(txt, fixed(pattern))
+}
 
-"\\setbeamertemplate",
+for (pattern in remove_lines) {
+  txt <- txt[!str_detect(txt, fixed(pattern))]
+}
+
+writeLines(txt, str_c(str_remove(file, fixed(".tex")), "-stripped.tex"))
