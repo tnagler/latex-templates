@@ -1,4 +1,5 @@
 \usepackage{shadethm}
+\usepackage{etoolbox}
 
 % theorem environments
 
@@ -20,6 +21,15 @@
 \newtheorem{assumption}[theorem]{Annahme}
 \newtheorem{example}[theorem]{Beispiel}
 \newtheorem{remark}[theorem]{Anmerkung}
+
+\AfterEndEnvironment{theorem}{\noindent\ignorespaces}
+\AfterEndEnvironment{corollary}{\noindent\ignorespaces}
+\AfterEndEnvironment{proposition}{\noindent\ignorespaces}
+\AfterEndEnvironment{lemma}{\noindent\ignorespaces}
+\AfterEndEnvironment{definition}{\noindent\ignorespaces}
+\AfterEndEnvironment{assumption}{\noindent\ignorespaces}
+\AfterEndEnvironment{example}{\noindent\ignorespaces}
+\AfterEndEnvironment{remark}{\noindent\ignorespaces}
 
 \Crefname{theorem}{Theorem}{Theoreme}
 \Crefname{corollary}{Korollar}{Korollare}
