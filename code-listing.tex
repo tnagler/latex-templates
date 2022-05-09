@@ -1,0 +1,40 @@
+\usepackage{listings}
+\lstloadlanguages{R}
+\lstdefinelanguage{Renhanced}[]{R}{%
+  morekeywords={acf,ar,arima,arima.sim,colMeans,colSums,is.na,is.null,%
+    mapply,ms,na.rm,nlmin,replicate,row.names,rowMeans,rowSums,seasonal,%
+    sys.time,system.time,ts.plot,which.max,which.min},%
+  deletekeywords={Call, on, codes, I, R, or},%
+  otherkeywords={!,!=,~,$,*,\%,\&,\%/\%,\%*\%,\%\%,<-,<<-,_,/},%
+  alsoother={._$},%
+  sensitive,%
+  morecomment=[l]\#,%
+  morestring=[d]",%
+  morestring=[d]'% 2001 Robert Denham
+}
+\lstset{ %
+	language=Renhanced,                     % the language of the code
+	basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+	numbers=left,                   % where to put the line-numbers
+	numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+	stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
+	% will be numbered
+	numbersep=5pt,                  % how far the line-numbers are from the code
+	backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+	showspaces=false,               % show spaces adding particular underscores
+	showstringspaces=false,         % underline spaces within strings
+	showtabs=false,                 % show tabs within strings adding particular underscores
+	frame=single,                   % adds a frame around the code
+	rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+	tabsize=2,                      % sets default tabsize to 2 spaces
+	captionpos=t,                   % sets the caption-position to bottom
+	breaklines=true,                % sets automatic line breaking
+	breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+	title=\lstname,                 % show the filename of files included with \lstinputlisting;
+	% also try caption instead of title
+	keywordstyle=\color{LMUblue},      % keyword style
+	commentstyle=\color{LMUgreen},   % comment style
+	stringstyle=\color{LMUorange},      % string literal style
+	escapeinside={\%*}{*)},         % if you want to add a comment within your code
+	morekeywords={*,...}            % if you want to add more keywords to the set
+} 
