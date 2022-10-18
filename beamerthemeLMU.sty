@@ -223,5 +223,8 @@
 \usepackage{pifont}
 \newcommand{\cmark}{\cbgreen{\text{\ding{51}}}}
 
+% hide switch to exclude stuff pre-lecture
+\def\prelecture{1}
+\newcommand{\hide}[1]{\ifnum\prelecture=0 #1 \fi}
 
 \mode<all>
