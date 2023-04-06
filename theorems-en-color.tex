@@ -20,8 +20,18 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{assumption}[theorem]{Assumption}
 \newtheorem{example}[theorem]{Example}
-\newtheorem{remark}[theorem]{Remark}
 \newtheorem{claim}[theorem]{Claim}
+
+\newtheoremstyle{new2}
+  {12pt}      % Space above
+  {12pt}      % Space below
+  {\normalshape}  % Body font
+  {}          % Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries\color{LMUgreen}} % head font
+  {.}         % Punctuation after  head
+  { }         % Space after  head: " " = normal inter-word space; \newline = line break
+  {}          % head spec (can be left empty, meaning 'normal')
+\newtheorem{remark}[theorem]{Remark}
 
 \AfterEndEnvironment{theorem}{\noindent\ignorespaces}
 \AfterEndEnvironment{corollary}{\noindent\ignorespaces}
